@@ -98,12 +98,6 @@ typedef struct
 //  void LCDI2C_init();
 
 ////compatibility API function aliases
-void LCDI2C_blink_on(void);						// alias for blink()
-void LCDI2C_blink_off(void);       					// alias for noBlink()
-void LCDI2C_cursor_on(void);      	 					// alias for cursor()
-void LCDI2C_cursor_off(void);      					// alias for noCursor()
-void LCDI2C_setBacklight(uint8_t new_val);				// alias for backlight() and nobacklight()
-void LCDI2C_load_custom_character(uint8_t char_num, uint8_t *rows);	// alias for createChar()
 void LCDI2C_printstr(const char[]);
 
 //void LCDI2C_init_priv();

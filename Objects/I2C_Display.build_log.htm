@@ -3,40 +3,39 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: µVision V5.22.0.0
-Copyright (C) 2016 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: Martin Zhang, Home, LIC=----
+IDE-Version: µVision V5.17.0.0
+Copyright (C) 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: MARTIN ZHANG, STUDENT, LIC=----
  
 Tool Versions:
-Toolchain:       MDK-Lite  Version: 5.22
-Toolchain Path:  F:\Keil_5\ARM\ARMCC\Bin
-C Compiler:      Armcc.exe V5.06 update 4 (build 422)
-Assembler:       Armasm.exe V5.06 update 4 (build 422)
-Linker/Locator:  ArmLink.exe V5.06 update 4 (build 422)
-Library Manager: ArmAr.exe V5.06 update 4 (build 422)
-Hex Converter:   FromElf.exe V5.06 update 4 (build 422)
-CPU DLL:         SARMCM3.DLL V5.22
-Dialog DLL:      DCM.DLL V1.13.9.0
+Toolchain:       MDK-Lite  Version: 5.17
+Toolchain Path:  D:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 1 (build 61)
+Assembler:       Armasm.exe V5.06 update 1 (build 61)
+Linker/Locator:  ArmLink.exe V5.06 update 1 (build 61)
+Library Manager: ArmAr.exe V5.06 update 1 (build 61)
+Hex Converter:   FromElf.exe V5.06 update 1 (build 61)
+CPU DLL:         SARMCM3.DLL V5.17
+Dialog DLL:      DCM.DLL V1.13.4.0
 Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V2.0.18.0
-Dialog DLL:      TCM.DLL V1.21.0.0
+Dialog DLL:      TCM.DLL V1.14.6.0
  
 <h2>Project:</h2>
-F:\Project\I2C Display\I2C_Display.uvprojx
-Project File Date:  02/23/2017
+C:\Users\Martin\Desktop\Projects\I2C-LCD-Display\I2C_Display.uvprojx
+Project File Date:  02/24/2017
 
 <h2>Output:</h2>
-*** Using Compiler 'V5.06 update 4 (build 422)', folder: 'F:\Keil_5\ARM\ARMCC\Bin'
+*** Using Compiler 'V5.06 update 1 (build 61)', folder: 'D:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Target 1'
 compiling main.c...
-compiling LiquidCrystal_I2C.c...
 linking...
-Program Size: Code=2816 RO-data=284 RW-data=32 ZI-data=1648  
+Program Size: Code=7048 RO-data=460 RW-data=56 ZI-data=1752  
 ".\Objects\I2C_Display.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
 Package Vendor: ARM
-                http://www.keil.com/pack/ARM.CMSIS.5.0.0.pack
+                http://www.keil.com/pack/ARM.CMSIS.5.0.0-Beta4.pack
                 ARM::CMSIS:CORE:5.0.0
                 CMSIS (Cortex Microcontroller Software Interface Standard)
    * Component: CORE Version: 5.0.0
@@ -44,62 +43,68 @@ Package Vendor: ARM
 
 Package Vendor: Keil
                 http://www.keil.com/pack/Keil.STM32F1xx_DFP.2.1.0.pack
-                Keil::Device:StdPeriph Drivers:DAC:3.5.0
+                Keil::Device:DMA:1.2
                 STMicroelectronics STM32F1 Series Device Support, Drivers and Examples
+   * Component: DMA Version: 1.2
+   * Component: TIM Version: 3.5.0
+   * Component: USART Version: 3.5.0
+   * Component: GPIO Version: 1.2
+   * Component: SPI Version: 3.5.0
+   * Component: CAN Version: 3.5.0
    * Component: DAC Version: 3.5.0
-   * Component: ADC Version: 3.5.0
-   * Component: I2C Version: 3.5.0
-   * Component: Startup Version: 1.0.0
-   * Component: DMA Version: 3.5.0
    * Component: Flash Version: 3.5.0
    * Component: GPIO Version: 3.5.0
-   * Component: Framework Version: 3.5.1
-   * Component: CAN Version: 3.5.0
-   * Component: RTC Version: 3.5.0
-   * Component: USART Version: 3.5.0
-   * Component: DMA Version: 1.2
-   * Component: SPI Version: 3.5.0
-   * Component: GPIO Version: 1.2
+   * Component: I2C Version: 3.5.0
+   * Component: DMA Version: 3.5.0
+   * Component: ADC Version: 3.5.0
    * Component: RCC Version: 3.5.0
-   * Component: TIM Version: 3.5.0
+   * Component: Startup Version: 1.0.0
+   * Component: RTC Version: 3.5.0
+   * Component: Framework Version: 3.5.1
 
 <h2>Collection of Component include folders:</h2>
-  F:\Project\I2C Display\RTE\Device\STM32F103C8
-  F:\Project\I2C Display\RTE\_Target_1
-  F:\Keil_5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include
-  F:\Keil_5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include
-  F:\Keil_5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\StdPeriph_Driver\inc
-  F:\Keil_5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\RTE_Driver
+  C:\Users\Martin\Desktop\Projects\I2C-LCD-Display\RTE
+  C:\Users\Martin\Desktop\Projects\I2C-LCD-Display\RTE\Device\STM32F103C8
+  D:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta4\CMSIS\Include
+  D:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include
+  D:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\StdPeriph_Driver\inc
+  D:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\RTE_Driver
 
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.0.0
 
    * Component: ARM::CMSIS:DSP:1.4.6
-      Library file:  CMSIS\Lib\ARM\arm_cortexM3l_math.lib
       Include file:  CMSIS\Include\arm_math.h
+      Library file:  CMSIS\Lib\ARM\arm_cortexM3l_math.lib
+
+   * Component: Keil::Device:DMA:1.2
+      Source file:   RTE_Driver\DMA_STM32F10x.c
+      Include file:  RTE_Driver\DMA_STM32F10x.h
+
+   * Component: Keil::Device:StdPeriph Drivers:TIM:3.5.0
+      Source file:   Device\StdPeriph_Driver\src\stm32f10x_tim.c
+      Include file:  Device\StdPeriph_Driver\inc\stm32f10x_tim.h
+
+   * Component: Keil::Device:StdPeriph Drivers:USART:3.5.0
+      Include file:  Device\StdPeriph_Driver\inc\stm32f10x_usart.h
+      Source file:   Device\StdPeriph_Driver\src\stm32f10x_usart.c
+
+   * Component: Keil::Device:GPIO:1.2
+      Include file:  RTE_Driver\GPIO_STM32F10x.h
+      Source file:   RTE_Driver\GPIO_STM32F10x.c
+
+   * Component: Keil::Device:StdPeriph Drivers:SPI:3.5.0
+      Source file:   Device\StdPeriph_Driver\src\stm32f10x_spi.c
+      Include file:  Device\StdPeriph_Driver\inc\stm32f10x_spi.h
+
+   * Component: Keil::Device:StdPeriph Drivers:CAN:3.5.0
+      Include file:  Device\StdPeriph_Driver\inc\stm32f10x_can.h
+      Source file:   Device\StdPeriph_Driver\src\stm32f10x_can.c
 
    * Component: Keil::Device:StdPeriph Drivers:DAC:3.5.0
       Include file:  Device\StdPeriph_Driver\inc\stm32f10x_dac.h
       Source file:   Device\StdPeriph_Driver\src\stm32f10x_dac.c
-
-   * Component: Keil::Device:StdPeriph Drivers:ADC:3.5.0
-      Include file:  Device\StdPeriph_Driver\inc\stm32f10x_adc.h
-      Source file:   Device\StdPeriph_Driver\src\stm32f10x_adc.c
-
-   * Component: Keil::Device:StdPeriph Drivers:I2C:3.5.0
-      Source file:   Device\StdPeriph_Driver\src\stm32f10x_i2c.c
-      Include file:  Device\StdPeriph_Driver\inc\stm32f10x_i2c.h
-
-   * Component: Keil::Device:Startup:1.0.0
-      Source file:   Device\Source\ARM\STM32F1xx_OPT.s
-      Include file:  RTE_Driver\Config\RTE_Device.h
-      Source file:   Device\Source\system_stm32f10x.c
-      Source file:   Device\Source\ARM\startup_stm32f10x_md.s
-
-   * Component: Keil::Device:StdPeriph Drivers:DMA:3.5.0
-      Include file:  Device\StdPeriph_Driver\inc\stm32f10x_dma.h
-      Source file:   Device\StdPeriph_Driver\src\stm32f10x_dma.c
 
    * Component: Keil::Device:StdPeriph Drivers:Flash:3.5.0
       Include file:  Device\StdPeriph_Driver\inc\stm32f10x_flash.h
@@ -109,45 +114,39 @@ Package Vendor: Keil
       Include file:  Device\StdPeriph_Driver\inc\stm32f10x_gpio.h
       Source file:   Device\StdPeriph_Driver\src\stm32f10x_gpio.c
 
-   * Component: Keil::Device:StdPeriph Drivers:Framework:3.5.1
-      Source file:   Device\StdPeriph_Driver\src\misc.c
-      Include file:  Device\StdPeriph_Driver\templates\stm32f10x_it.h
-      Source file:   Device\StdPeriph_Driver\templates\stm32f10x_it.c
-      Source file:   Device\StdPeriph_Driver\templates\stm32f10x_conf.h
-      Include file:  Device\StdPeriph_Driver\inc\misc.h
+   * Component: Keil::Device:StdPeriph Drivers:I2C:3.5.0
+      Source file:   Device\StdPeriph_Driver\src\stm32f10x_i2c.c
+      Include file:  Device\StdPeriph_Driver\inc\stm32f10x_i2c.h
 
-   * Component: Keil::Device:StdPeriph Drivers:CAN:3.5.0
-      Source file:   Device\StdPeriph_Driver\src\stm32f10x_can.c
-      Include file:  Device\StdPeriph_Driver\inc\stm32f10x_can.h
+   * Component: Keil::Device:StdPeriph Drivers:DMA:3.5.0
+      Include file:  Device\StdPeriph_Driver\inc\stm32f10x_dma.h
+      Source file:   Device\StdPeriph_Driver\src\stm32f10x_dma.c
 
-   * Component: Keil::Device:StdPeriph Drivers:RTC:3.5.0
-      Include file:  Device\StdPeriph_Driver\inc\stm32f10x_rtc.h
-      Source file:   Device\StdPeriph_Driver\src\stm32f10x_rtc.c
-
-   * Component: Keil::Device:StdPeriph Drivers:USART:3.5.0
-      Include file:  Device\StdPeriph_Driver\inc\stm32f10x_usart.h
-      Source file:   Device\StdPeriph_Driver\src\stm32f10x_usart.c
-
-   * Component: Keil::Device:DMA:1.2
-      Include file:  RTE_Driver\DMA_STM32F10x.h
-      Source file:   RTE_Driver\DMA_STM32F10x.c
-
-   * Component: Keil::Device:StdPeriph Drivers:SPI:3.5.0
-      Include file:  Device\StdPeriph_Driver\inc\stm32f10x_spi.h
-      Source file:   Device\StdPeriph_Driver\src\stm32f10x_spi.c
-
-   * Component: Keil::Device:GPIO:1.2
-      Source file:   RTE_Driver\GPIO_STM32F10x.c
-      Include file:  RTE_Driver\GPIO_STM32F10x.h
+   * Component: Keil::Device:StdPeriph Drivers:ADC:3.5.0
+      Source file:   Device\StdPeriph_Driver\src\stm32f10x_adc.c
+      Include file:  Device\StdPeriph_Driver\inc\stm32f10x_adc.h
 
    * Component: Keil::Device:StdPeriph Drivers:RCC:3.5.0
       Include file:  Device\StdPeriph_Driver\inc\stm32f10x_rcc.h
       Source file:   Device\StdPeriph_Driver\src\stm32f10x_rcc.c
 
-   * Component: Keil::Device:StdPeriph Drivers:TIM:3.5.0
-      Include file:  Device\StdPeriph_Driver\inc\stm32f10x_tim.h
-      Source file:   Device\StdPeriph_Driver\src\stm32f10x_tim.c
-Build Time Elapsed:  00:00:01
+   * Component: Keil::Device:Startup:1.0.0
+      Source file:   Device\Source\system_stm32f10x.c
+      Source file:   Device\Source\ARM\STM32F1xx_OPT.s
+      Include file:  RTE_Driver\Config\RTE_Device.h
+      Source file:   Device\Source\ARM\startup_stm32f10x_md.s
+
+   * Component: Keil::Device:StdPeriph Drivers:RTC:3.5.0
+      Source file:   Device\StdPeriph_Driver\src\stm32f10x_rtc.c
+      Include file:  Device\StdPeriph_Driver\inc\stm32f10x_rtc.h
+
+   * Component: Keil::Device:StdPeriph Drivers:Framework:3.5.1
+      Source file:   Device\StdPeriph_Driver\src\misc.c
+      Include file:  Device\StdPeriph_Driver\templates\stm32f10x_it.h
+      Include file:  Device\StdPeriph_Driver\inc\misc.h
+      Source file:   Device\StdPeriph_Driver\templates\stm32f10x_conf.h
+      Source file:   Device\StdPeriph_Driver\templates\stm32f10x_it.c
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>

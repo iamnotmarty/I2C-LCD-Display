@@ -1,10 +1,9 @@
 --cpu Cortex-M3
+".\objects\main.o"
+".\objects\liquidcrystal_i2c.o"
 ".\objects\delay.o"
 ".\objects\i2c.o"
-".\objects\liquidcrystal_i2c.o"
-".\objects\main.o"
-".\objects\usart.o"
-"F:\Keil_5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Lib\ARM\arm_cortexM3l_math.lib"
+"D:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta4\CMSIS\Lib\ARM\arm_cortexM3l_math.lib"
 ".\objects\misc.o"
 ".\objects\stm32f10x_adc.o"
 ".\objects\stm32f10x_can.o"

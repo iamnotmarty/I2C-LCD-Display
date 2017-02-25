@@ -3,8 +3,11 @@
 #include "stm32f10x_rcc.h"
 #include "stm32f10x_i2c.h"
 #include "delay.h"
-#include "I2C.h"
 #include "LiquidCrystal_I2C.h"
+#include "I2C.h"
+
+
+#define I2Cx I2C1
 
 //YWROBOT
 //last updated on 21/12/2011
@@ -15,42 +18,27 @@
 //Library version:1.1
 
 
+LiquidCrystal_I2C_Def lcdi2c;
+
+
 void LCDI2C_write(uint8_t value){
 	LCDI2C_send(value, Rs);
 }
 
 
-
-// When the display powers up, it is configured as follows:
-//
-// 1. Display clear
-// 2. Function set:
-//    DL = 1; 8-bit interface data
-//    N = 0; 1-line display
-//    F = 0; 5x8 dot character font
-// 3. Display on/off control:
-//    D = 0; Display off
-//    C = 0; Cursor off
-//    B = 0; Blinking off
-// 4. Entry mode set:
-//    I/D = 1; Increment by 1
-//    S = 0; No shift
-//
-// Note, however, that resetting the Arduino doesn't reset the LCD, so we
-// can't assume that its in that state when a sketch starts (and the
-// LiquidCrystal constructor is called).
-
-LiquidCrystal_I2C_Def lcdi2c;
-
 void LCDI2C_init(uint8_t lcd_Addr,uint8_t lcd_cols,uint8_t lcd_rows)
 {
+	//GPIO_SetBits(GPIOA,GPIO_Pin_9);
   lcdi2c.Addr = lcd_Addr;
   lcdi2c.cols = lcd_cols;
   lcdi2c.rows = lcd_rows;
-  lcdi2c.backlightval = LCD_NOBACKLIGHT;
-
-  init_I2C1(); 
+  lcdi2c.backlightval = LCD_BACKLIGHT;
+	lcdi2c.displaycontrol = LCD_DISPLAYON | LCD_CURSOROFF | LCD_BLINKOFF;  
   lcdi2c.displayfunction = LCD_4BITMODE | LCD_1LINE | LCD_5x8DOTS;
+	lcdi2c.displaymode = LCD_ENTRYLEFT | LCD_ENTRYSHIFTDECREMENT;
+	
+	init_I2C(); 
+
   LCDI2C_begin(lcd_cols, lcd_rows);
 }
 
@@ -62,19 +50,15 @@ void LCDI2C_begin(uint8_t cols, uint8_t lines) {
 	}
 	lcdi2c.numlines = lines;
 
-	// for some 1 line displays you can select a 10 pixel high font
-/*	if ((dotsize != 0) && (lines == 1)) {
-		_displayfunction |= LCD_5x10DOTS;
-	}*/
-
 	// SEE PAGE 45/46 FOR INITIALIZATION SPECIFICATION!
 	// according to datasheet, we need at least 40ms after power rises above 2.7V
 	// before sending commands. Arduino can turn on way befer 4.5V so we'll wait 50
-	Delay(150);
+	DelayMs(51);
 
 	// Now we pull both RS and R/W low to begin commands
 	LCDI2C_expanderWrite(lcdi2c.backlightval);	// reset expanderand turn backlight off (Bit 8 =1)
-	Delay(5000);
+	GPIO_SetBits(GPIOA,GPIO_Pin_9);
+	DelayMs(5);
 
   	//put the LCD into 4 bit mode
 	// this is according to the hitachi HD44780 datasheet
@@ -82,15 +66,15 @@ void LCDI2C_begin(uint8_t cols, uint8_t lines) {
 
 	  // we start in 8bit mode, try to set 4 bit mode
    LCDI2C_write4bits(0x03 << 4);
-   DelayMC(25000); // wait min 4.1ms
+   DelayMs(5); // wait min 4.1ms
 
    // second try
    LCDI2C_write4bits(0x03 << 4);
-   DelayMC(25000); // wait min 4.1ms
+   DelayMs(5); // wait min 4.1ms
 
    // third go!
    LCDI2C_write4bits(0x03 << 4);
-   DelayMC(800);
+   DelayMs(5);
 
    // finally, set to 4-bit interface
    LCDI2C_write4bits(0x02 << 4);
@@ -119,12 +103,12 @@ void LCDI2C_begin(uint8_t cols, uint8_t lines) {
 /********** high level commands, for the user! */
 void LCDI2C_clear(void){
 	LCDI2C_command(LCD_CLEARDISPLAY);// clear display, set cursor position to zero
-	DelayMC(15000);  // this command takes a long time!
+	DelayUs(1800);  // 1.57ms
 }
 
 void LCDI2C_home(void){
 	LCDI2C_command(LCD_RETURNHOME);  // set cursor position to zero
-	DelayMC(15000);  // this command takes a long time!
+	DelayUs(1800);  // 1.57ms
 }
 
 void LCDI2C_setCursor(uint8_t col, uint8_t row){
@@ -249,47 +233,19 @@ void LCDI2C_write4bits(uint8_t value) {
 void LCDI2C_expanderWrite(uint8_t _data){
 	I2C_StartTransmission (I2C1, I2C_Direction_Transmitter, lcdi2c.Addr); 
 	I2C_WriteData(I2C1, (int)(_data) | lcdi2c.backlightval); 
+
 	I2C_GenerateSTOP(I2C1, ENABLE);
+	while(I2C_GetFlagStatus(I2C1, I2C_FLAG_STOPF));
 }
 
 void LCDI2C_pulseEnable(uint8_t _data){
 	LCDI2C_expanderWrite(_data | En);	// En high
-	DelayMC(5);		// enable pulse must be >450ns
+	DelayUs(1);		// enable pulse must be >450ns
 
 	LCDI2C_expanderWrite(_data & ~En);	// En low
-	DelayMC(350);		// commands need > 37us to settle
+	DelayUs(40);		// commands need > 37us to settle
 }
 
-
-// Alias functions
-
-void LCDI2C_cursor_on(void){
-	LCDI2C_cursor();
-}
-
-void LCDI2C_cursor_off(void){
-	LCDI2C_noCursor();
-}
-
-void LCDI2C_blink_on(void){
-	LCDI2C_blink();
-}
-
-void LCDI2C_blink_off(void){
-	LCDI2C_noBlink();
-}
-
-void LCDI2C_load_custom_character(uint8_t char_num, uint8_t *rows){
-		LCDI2C_createChar(char_num, rows);
-}
-
-void LCDI2C_setBacklight(uint8_t new_val){
-	if(new_val){
-//		backlight();		// turn backlight on
-	}else{
-//		noBacklight();		// turn backlight off
-	}
-}
 
 
 void LCDI2C_write_String(char* str) {

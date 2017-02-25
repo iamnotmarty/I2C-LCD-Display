@@ -477,14 +477,14 @@ ARM Macro Assembler    Page 8
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
 ork --depend=.\objects\startup_stm32f10x_md.d -o.\objects\startup_stm32f10x_md.
-o -I"F:\Project\I2C Display\RTE\Device\STM32F103C8" -I"F:\Project\I2C Display\R
-TE\_Target_1" -IF:\Keil_5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include -IF:\Keil_5\AR
-M\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include -IF:\Keil_5\ARM\PACK\Keil\STM32F
-1xx_DFP\2.1.0\Device\StdPeriph_Driver\inc -IF:\Keil_5\ARM\PACK\Keil\STM32F1xx_D
-FP\2.1.0\RTE_Driver --predefine="__EVAL SETA 1" --predefine="__UVISION_VERSION 
-SETA 522" --predefine="_RTE_ SETA 1" --predefine="STM32F10X_MD SETA 1" --list=.
-\listings\startup_stm32f10x_md.lst RTE\Device\STM32F103C8\startup_stm32f10x_md.
-s
+o -IC:\Users\Martin\Desktop\Projects\I2C-LCD-Display\RTE -IC:\Users\Martin\Desk
+top\Projects\I2C-LCD-Display\RTE\Device\STM32F103C8 -ID:\Keil_v5\ARM\PACK\ARM\C
+MSIS\5.0.0-Beta4\CMSIS\Include -ID:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\D
+evice\Include -ID:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\StdPeriph_D
+river\inc -ID:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\RTE_Driver --predefine
+="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 517" --predefine="_RTE_ SE
+TA 1" --predefine="STM32F10X_MD SETA 1" --list=.\listings\startup_stm32f10x_md.
+lst RTE\Device\STM32F103C8\startup_stm32f10x_md.s
 
 
 
